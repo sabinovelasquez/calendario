@@ -1,35 +1,39 @@
 import React from 'react';
 import { render } from 'react-dom';
 import InfiniteCalendar from 'react-infinite-calendar';
-import 'react-infinite-calendar/styles.css'; // only needs to be imported once
+import 'react-infinite-calendar/styles.css'; 
+import './index.css';
 
-// Render the Calendar
 const today = new Date();
 const lastWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7);
 const locale = {
   blank: 'Selecciona una fecha',
   headerFormat: 'dddd, D MMM',
-  locale: require('date-fns/locale/es'), // You need to pass in the date-fns locale for the language you want (unless it's EN)
+  locale: require('date-fns/locale/es'),
   todayLabel: {
-    long: "Hoy",
+    long: 'Hoy',
   },
   weekdays: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
-  weekStartsOn: 1, // Start the week on Monday
+  weekStartsOn: 1,
 };
 
 const theme = {
-  selectionColor: 'rgb(146, 118, 255)',
+  selectionColor: '#16a085',
   textColor: {
     default: '#333',
     active: '#FFF'
   },
-  weekdayColor: 'rgb(146, 118, 255)',
-  headerColor: 'rgb(127, 95, 251)',
+  weekdayColor: '#16a085',
+  headerColor: '#1abc9c',
   floatingNav: {
-    background: 'rgba(81, 67, 138, 0.96)',
-    color: '#FFF',
-    chevron: '#FFA726'
+    background: '#7f8c8d',
+    color: '#fff',
+    chevron: '#fff'
   }
+};
+
+const selectDate = (val) => {
+  alert(`date: ${val}`);
 };
 
 render(
@@ -38,6 +42,7 @@ render(
     minDate={lastWeek}
     locale={locale}
     theme={theme}
+    onSelect={selectDate}
   />,
   document.getElementById('root')
 );
