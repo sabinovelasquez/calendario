@@ -2,6 +2,22 @@
 *{
   font-family: 'Montserrat', sans-serif;
 }
+body, #root{
+  width:100%;
+  margin:0;
+  padding: 0;
+  overflow: hidden;
+}
 .Cal__Header__date{
   text-transform: uppercase;
+}
+.Cal__Day__today{
+  color: #c0392b!important;
+}
+.Cal__Day__root:hover:before{
+  display: none;
+}
+.ReactModalPortal{
+  position: relative;
+  z-index: 99;
 }
